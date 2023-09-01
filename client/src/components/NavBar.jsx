@@ -3,15 +3,15 @@ import { Link } from "react-router-dom";
 export const NavBar = () => {
   return (
     <nav>
-      <ul className="bg-blue-300 hidden sm:flex text-lg">
+      <ul>
         <li>
-          <Link to={"/"}>Home</Link>
+          <Link to={"/admin"}>Inicio</Link>
         </li>
         <li>
-          <Link to={"/create-tournament"}>Crear Torneo</Link>
+          <Link to={"create-tournament"}>Crear Torneo</Link>
         </li>
         <li>
-          <Link to={"/contact"}>Contacto</Link>
+          <Link to={"inscription"}>Inscripcion</Link>
         </li>
       </ul>
     </nav>
