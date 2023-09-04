@@ -26,11 +26,11 @@ export const Tournament = sequelize.define('Tournament', {
         allowNull: false
     },
     game_days: {
-        type: DataTypes.STRING,
+        type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false
     },
     place: {
-        type: DataTypes.STRING,
+        type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false
     }
 },{
