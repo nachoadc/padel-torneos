@@ -1,9 +1,11 @@
 import app from './app.js';
 import {sequelize} from './database/database.js';
 
-const PORT = process.env.PORT ?? 4000;
+const PORT = process.env.PORT || 4000;
 
-import './models/Organization.js';
+import './models/Tournament.js';
+import './models/Seed.js';
+import './models/Categorie.js';
 
 async function main(){
     try {
