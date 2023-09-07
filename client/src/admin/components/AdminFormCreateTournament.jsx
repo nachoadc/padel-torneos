@@ -1,20 +1,23 @@
 import { useState } from "react";
 import AdminInputForm from "./AdminInputForm";
+import AdminDaysTournament from "./AdminDaysTournament";
 
 const AdminFormCreateTournament = () => {
+  const [nombre, setNombre] = useState({ campo: "", valido: null });
+  const [fechaInicio, setFechaInicio] = useState({ campo: "", valido: null });
 
-  const [nombre, setNombre] = useState({campo:"", valido: null});
-  const [fechaInicio, setFechaInicio] = useState({campo:"", valido: null});
 
   const expresiones = {
-    torneo: /^[a-zA-Z0-9\\-]{4,16}$/, // Letras, números, guion y guion_bajo
+    torneo: /^[a-zA-Z0-9\s\-]{4,100}$/, // Letras, números, guion y guion_bajo
     nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
     password: /^.{4,12}$/, // 4 a 12 dígitos.
     correo: /^[a-zA-Z0-9.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
     telefono: /^\d{7,14}$/, // 7 a 14 números.
-    fecha: /^(0[1-9]|[1-2]\d|3[01])(\/)(0[1-9]|1[012])\2(\d{4})$/
-    }
-    
+    fecha: /^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/,
+  };
+
+  
+
   return (
     <form action="" className="flex flex-col gap-2">
       <AdminInputForm
@@ -35,10 +38,11 @@ const AdminFormCreateTournament = () => {
         label="Fecha de inicio"
         /* placeholder="1ra fecha anual impares" */
         name="fechaInicio"
-        leyendaError="Este campo es requerido"
+        leyendaError="ingreso mal la fecha"
         expresionRegular={expresiones.fecha}
       />
-      
+
+      { fechaInicio.campo && <AdminDaysTournament fecha={fechaInicio.campo}/>}
 
       <div>
         <label>
