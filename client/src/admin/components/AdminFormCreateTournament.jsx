@@ -1,11 +1,11 @@
 import { useState } from "react";
 import AdminInputForm from "./AdminInputForm";
 import AdminDaysTournament from "./AdminDaysTournament";
+import AdminRegistrationDeadline from "./AdminRegistrationDeadline";
 
 const AdminFormCreateTournament = () => {
   const [nombre, setNombre] = useState({ campo: "", valido: null });
   const [fechaInicio, setFechaInicio] = useState({ campo: "", valido: null });
-
 
   const expresiones = {
     torneo: /^[a-zA-Z0-9\s\-]{4,100}$/, // Letras, números, guion y guion_bajo
@@ -15,8 +15,6 @@ const AdminFormCreateTournament = () => {
     telefono: /^\d{7,14}$/, // 7 a 14 números.
     fecha: /^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/,
   };
-
-  
 
   return (
     <form action="" className="flex flex-col gap-2">
@@ -42,7 +40,12 @@ const AdminFormCreateTournament = () => {
         expresionRegular={expresiones.fecha}
       />
 
-      { fechaInicio.campo && <AdminDaysTournament fecha={fechaInicio.campo}/>}
+      {fechaInicio.campo && (
+        <div>
+          <AdminRegistrationDeadline fecha={fechaInicio.campo} />
+          <AdminDaysTournament fecha={fechaInicio.campo} />
+        </div>
+      )}
 
       <div>
         <label>
