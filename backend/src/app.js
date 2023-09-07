@@ -1,11 +1,12 @@
 import express from 'express';
-import organizationRoutes from './routes/organization.routes.js';
+import tournamentRoutes from './routes/tournament.js';
 
 const app = express();
-
 // middlewares
 app.use(express.json());
 
-app.use(organizationRoutes);
+app.disable('x-powered-by');
+
+app.use('/tournament', tournamentRoutes);
 
 export default app;

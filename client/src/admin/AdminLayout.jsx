@@ -2,7 +2,7 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 
-const LayoutAdmin = () => {
+const AdminLayout = () => {
   return (
     <main className="flex h-screen bg-slate-200">
       <Sidebar/>
@@ -11,4 +11,4 @@ const LayoutAdmin = () => {
   );
 };
 
-export default LayoutAdmin;
+export default AdminLayout;

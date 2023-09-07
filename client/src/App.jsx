@@ -1,24 +1,26 @@
 import { Routes, Route } from "react-router-dom";
 
-import Error404 from "./pages/Error404";
-import LayoutAdmin from "./layouts/LayoutAdmin";
+
 import {
-  CreateTournamentPageAdmin,
-  HomePageAdmin,
-  InscriptionPageAdmin,
-} from "./pages/admin";
+  AdminCreateTournamentPage,
+  AdminHomePage,
+  AdminInscriptionPage,
+} from "./admin/pages";
+import AdminLayout from "./admin/AdminLayout";
+import Error404 from "./components/Error404";
+
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<h1>SOY LANDINPAGE</h1>} />
-      <Route path="/admin" element={<LayoutAdmin />}>
-        <Route index element={<HomePageAdmin />} />
+      <Route path="/" element={<h1>SOY LANDIN PAGE</h1>} />
+      <Route path="/admin" element={<AdminLayout />}>
+        <Route index element={<AdminHomePage  />} />
         <Route
           path="create-tournament"
-          element={<CreateTournamentPageAdmin />}
+          element={<AdminCreateTournamentPage />}
         />
-        <Route path="inscription" element={<InscriptionPageAdmin />} />
+        <Route path="inscription" element={<AdminInscriptionPage />} />
       </Route>
       <Route path="*" element={<Error404 />} />
     </Routes>
